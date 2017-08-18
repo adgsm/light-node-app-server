@@ -1,6 +1,4 @@
 function Common(){
-	this.signInLocation = '/account/sign-in';
-	this.maxUploadSize = 200 * 1024 * 1024;
 	this.KB = 'KB';
 	this.KBsize = 1024;
 	this.MB = 'MB';
@@ -102,12 +100,6 @@ Common.prototype.eventStopPropagationPreventDefault = function( e ){
 		e.cancelBubble = true;
 		e.returnValue = false;
 	}
-};
-
-Common.prototype.closeSocket = function ( socket , $item ) {
-	var self = this;
-	if( socket ) socket.disconnect();
-	if( $item && $item.length && $item.data( 'socket' ) ) $item.data( 'socket' , null );
 };
 
 // Password score
@@ -248,78 +240,6 @@ Common.prototype.measureUploadSpeed = function ( packetSize , callback ) {
 	httpRequest.send( data );
 };
 
-
-// parse document permission
-Common.prototype[ 'parse-permission-record' ] = function( acl , username ){
-	var permission = {
-		'read' : false,
-		'write' : false,
-		'delete' : false
-	};
-
-	try{
-		for( var i=0; i<acl.length; i++ ){
-			var permissionStr = acl[ i ],
-				permissionChunks = permissionStr.split( ':' ),
-				user = permissionChunks[0],
-				permissions = permissionChunks[1].split( ',' );
-			if( user != username )
-				continue;
-			if( !permission[ 'read' ] ) permission[ 'read' ] = permissions.indexOf( 'read' ) > -1;
-			if( !permission[ 'write' ] ) permission[ 'write' ] = permissions.indexOf( 'write' ) > -1;
-			if( !permission[ 'delete' ] ) permission[ 'delete' ] = permissions.indexOf( 'delete' ) > -1;
-		}
-	}
-	catch( e ){
-		console.log( e );
-	}
-	return permission;
-};
-
-Common.prototype.initSort = function ( $header , sortBy , that ) {
-	var self = this;
-	$header.css( 'cursor' , 'pointer' );
-	$header.off( self.eventType.click );
-	$header.on( self.eventType.click , function( ev ){
-		self.eventStopPropagationPreventDefault( ev );
-		that.args[ 'sort-dir' ] = ( that.args[ 'sort-dir' ] == 'ASC' ) ? 'DESC' : 'ASC';
-		that.args[ 'sort-by' ] = sortBy;
-		that.list( that.$listContainer );
-
-		$header.parents( 'tr' ).first().find( 'i' ).remove();
-		$header.append( ( that.args[ 'sort-dir' ] == 'ASC' ) ? that.$caretUp : that.$caretDown );
-	} );
-};
-
-Common.prototype.initSearch = function ( $search , $searchButton , $clearSearchButton , that , ftsField ) {
-	var self = this;
-	$search.off( self.eventType.keyup );
-	$search.on( self.eventType.keyup , function( ev ){
-		if( ev.keyCode == 13 ) $searchButton.trigger( self.eventType.click );
-		if( ev.keyCode == 27 ) {
-			$clearSearchButton.trigger( self.eventType.click );
-		}
-	} );
-
-	$searchButton.off( self.eventType.click );
-	$searchButton.on( self.eventType.click , function( ev ){
-		self.eventStopPropagationPreventDefault( ev );
-		that.args[ 'start' ] = 0;
-		that.args[ 'search-query' ] = $search.val();
-		that.args[ 'fts' ] = ftsField;
-		if( $search.val() != '' ) that.list( that.$listContainer );
-	} );
-
-	$clearSearchButton.off( self.eventType.click );
-	$clearSearchButton.on( self.eventType.click , function( ev ){
-		self.eventStopPropagationPreventDefault( ev );
-		$search.val( '' );
-		that.args[ 'start' ] = 0;
-		that.args[ 'search-query' ] = null;
-		that.args[ 'fts' ] = ftsField;
-		that.list( that.$listContainer );
-	} );
-};
 
 Common.prototype.getScrollbarWidth = function() {
 	var outer = document.createElement( 'div' );
