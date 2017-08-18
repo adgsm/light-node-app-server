@@ -1,0 +1,109 @@
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	color: #fff !important;
+}
+::-moz-placeholder { /* Firefox 19+ */
+	color: #fff !important;
+}
+:-ms-input-placeholder { /* IE 10+ */
+	color: #fff !important;
+}
+:-moz-placeholder { /* Firefox 18- */
+	color: #fff !important;
+}
+
+body {
+	font-family: 'Exo 2', sans-serif;
+	font-size: 16px;
+	color: #333;
+	background-color: #fff;
+}
+
+.holder {
+	margin: 25px auto 0 auto;
+	padding: 10px;
+	position: relative;
+	text-align: center;
+	vertical-align: top;
+	max-width: 450px;
+	min-width: 380px
+}
+
+img.main-motive {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	width: 105%;
+}
+
+header.microbranding {
+	margin: 50px auto 0 auto;
+	padding: 10px;
+	text-align: center;
+	vertical-align: top;
+	max-width: 450px;
+	min-width: 380px
+}
+
+header.microbranding h1 {
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+section {
+	position: relative;
+	margin: 10px auto;
+	padding: 10px;
+	vertical-align: top;
+	max-width: 450px;
+	min-width: 380px
+}
+
+br {
+	clear: both;
+}
+
+.split {
+	border-bottom: 1px solid #ddd;
+}
+
+section.login-fields .forgot-your-password {
+	margin: 0 1em;
+	color: #333;
+}
+
+section.login-fields .need-an-account {
+	margin: .5em 0;
+}
+
+section.login-fields .sign-up {
+	margin: 0 .2em;
+	color: #333;
+}
+
+section.misc .looking-for-homepage {
+	text-align: center;
+	margin: .5em 0;
+	color: #333;
+}
+
+section a,
+section a:hover,
+section a:visited {
+	color: #000;
+	text-decoration: underline;
+}
+
+.holder .credits {
+	font-size: .75em;
+	color: #ddd;
+	position: absolute;
+	bottom: 1em;
+	right: 2em;
+}
+
+.holder .credits a{
+	color: #ccc;
+	text-decoration: underline;
+}

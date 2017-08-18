@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<% include ../partials/common/404/head-404 %>
+		<link rel="stylesheet" href="/css/common/404/404.css" type='text/css'>
+		<title><%= four_o_four_page_title %></title>
+	</head>
+	<body>
+
+		<div class="holder">
+			<img class="main-motive" src="/img/32389-white-board.svg" />
+
+			<!--Microbranding header-->
+			<header class="microbranding">
+				<h1><%= four_o_four %></h1>
+			</header>
+			<!--//Microbranding header-->
+
+			<!--Login fields section-->
+			<section class="login-fields split">
+				<form id="four_o_four_form">
+					<%= four_o_four_text %>
+					<br class="split"/>
+				</form>
+			</section>
+			<!--//Login fields section-->
+
+			<!--Misc section-->
+			<section class="misc">
+				<div class="looking-for-homepage"><%= back_to %> <a href="/"><%= home_page %></a></div>
+			</section>
+			<!--//Misc section-->
+
+			<div class="credits"><a href="https://openclipart.org/user-detail/rg1024" target="_blank"><%= credits %></a></div>
+		</div>
+
+		<!--common js scripts -->
+		<% include ../partials/common/404/commonjs-404 %>
+		<script type="text/javascript" src="/js/common/404/404.js"></script>
+		<!--//common js scripts -->
+	</body>
+</html>

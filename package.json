@@ -1,0 +1,24 @@
+{
+	"name": "light_node_app_server",
+	"version": "0.0.1",
+	"private": true,
+	"description": "Light node app server",
+	"author": {
+	"name": "Momcilo Dzunic",
+	"email": "momcilo@dzunic.net"
+},
+	"dependencies": {
+		"os": "*",
+		"http": "*",
+		"path": "*",
+		"cluster": "*",
+		"graceful-fs": "*",
+		"url": "*",
+		"locale": "*",
+		"node-static": "*",
+		"ejs": "*",
+		"zlib": "*",
+		"querystring": "*",
+		"form-data" : "*"
+	}
+}

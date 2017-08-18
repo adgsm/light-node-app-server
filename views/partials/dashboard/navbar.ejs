@@ -1,0 +1,41 @@
+<nav class="navbar navbar-default hidden-in-frame">
+	<div class="container-fluid">
+
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+				<span class="sr-only"><%= toggle_navigation %></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/dashboard/landing"><span class="fa fa-dashboard" aria-hidden="true"></span> Dashboard</a>
+		</div>
+
+		<div class="collapse navbar-collapse" id="navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="/dashboard/spreadsheets" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-file-excel-o" aria-hidden="true"></span> <%= spreadsheets %></a>
+				</li>
+				<li>
+					<a href="/dashboard/libraries" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-book" aria-hidden="true"></span> <%= libraries %></a>
+				</li>
+				<li>
+					<a href="/dashboard/galleries" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-image" aria-hidden="true"></span> <%= galleries %></a>
+				</li>
+				<li>
+					<a href="/dashboard/events" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-calendar" aria-hidden="true"></span> <%= events %></a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="fa fa-user" aria-hidden="true"></span> <span id="logged_user"></span> <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li class="disabled"><a href="#"><%= my_profile %></a></li>
+						<li role="separator" class="divider"></li>
+						<li><a id="sign_out" href="#"><%= sign_out %></a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
