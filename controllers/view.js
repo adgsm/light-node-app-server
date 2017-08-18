@@ -7,7 +7,6 @@ class View {
 		this.ejs = require( 'ejs' );
 		this.Response = new ( require( this.path.normalize( this.path.resolve( __dirname + '/' + '../libs/response/response' ) ) ) )();
 		this.Common = new ( require( this.path.normalize( this.path.resolve( __dirname + '/' + './common' ) ) ) )();
-		this.loginView = '/account/sign-in.ejs';
 		this.notFoundView = '/common/404.ejs';
 	}
 
