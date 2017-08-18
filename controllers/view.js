@@ -7,6 +7,7 @@ class View {
 		this.ejs = require( 'ejs' );
 		this.Response = new ( require( this.path.normalize( this.path.resolve( __dirname + '/' + '../libs/response/response' ) ) ) )();
 		this.Common = new ( require( this.path.normalize( this.path.resolve( __dirname + '/' + './common' ) ) ) )();
+		this.rootView = '/page/index.ejs';
 		this.notFoundView = '/common/404.ejs';
 	}
 
@@ -19,6 +20,9 @@ class View {
 			path = ( query && query.path ) ? query.path : ( ( route ) ? route.path : null ),
 			pretty = ( query && query.pretty ) ? ( ( parseInt( query.pretty , 10 ) != NaN ) ? parseInt( query.pretty , 10 ) : query.pretty ) : undefined,
 			view = ( path ) ? path + '.ejs' : self.notFoundView;
+
+		if( view == '/.ejs' )
+			view = self.rootView;
 
 		if( !self.Common[ 'method-allowed' ]( request , response , allowedMethodTypes ) ) return false;
 
